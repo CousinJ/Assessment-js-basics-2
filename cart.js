@@ -35,9 +35,9 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.map(cart => cart.price).reduce((ac, cr) => ac + cr)
 
-
+console.log(summedPrice)
 //////////////////PROBLEM 2////////////////////
 /*  
     Write a function called `calcFinalPrice` that
@@ -54,8 +54,12 @@ const cart = [
 */
 
 //CODE HERE
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    return cartTotal + (cartTotal * tax) - couponValue
+    
+}
 
-
+console.log(calcFinalPrice(summedPrice, 5, .06))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -79,6 +83,27 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
+    
+    My customer object will have the following data...
+
+    party size: this will be number and contain how many people dined with them.
+       - I chose this property to alert staff if a table is too big they may need multiple waiters on that table.
+       - I chose the number data type because only the numerical value of how many people dining is needed.
+    
+
+    Check amount: this is the total cost before tips. this will also be a number.
+        - I chose to add check amount to easily have a total ready for staff and customers.
+        - This will be a number value because it is a dollar amount.
+
+    verteran or senior status:  this will be a boolean value true or false.
+        - I chose this property because verterans and seniors usually automatically get discounts from the company.
+        -   This will be a boolean becuase only two options are available.
+
+    Food ordered:  this will be an array of string values. 
+        - I added this to potentially add data to what dishes are popular and which ones are not. this can help the business get rid of dishes they do not need on hand.
+        - This is an array of strings becuase people will usually order mulitple items and those itens will be specific words.
+    
+
 
 */
 
@@ -88,3 +113,14 @@ const cart = [
 */
 
 //CODE HERE
+const customers = [
+    {
+        party: 4,
+        check: 60,
+        vetOrSenior: false,
+        food: ['BarbQ', 'Margehrita', 'Lemonade']
+
+    }
+]
+
+

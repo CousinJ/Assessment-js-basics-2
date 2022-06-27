@@ -31,7 +31,14 @@
 */
 
 //CODE HERE
-
+let pizza = {
+    name: 'Margherita',
+    price: 30,
+    category: 'Entree',
+    popularity: 7,
+    rating: 9,
+    tags: ['Vegan', 'Popular', 'Award Winning']
+}
 
 
 //////////////////PROBLEM 2////////////////////
@@ -43,7 +50,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +60,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -64,6 +71,7 @@
 
 //CODE HERE
 
+let {price} = pizza
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +81,8 @@
 */
 
 //CODE HERE
-
+let {category} = pizza
+console.log(pizza.category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,7 +97,48 @@
 */
 
 //CODE HERE
-
+foodArr = [
+    {
+        name: 'Margherita',
+        price: 30,
+        popularity: 7,
+        category:'Entree',
+        rating: 9 ,
+        tags: ['Vegan', 'Popular', 'Award Winning']
+    },
+    {
+        name: 'Bacon Strips',
+        price: 40,
+        popularity: 9,
+        category: 'Entree',
+        rating: 8,
+        tags: ['Yummy', 'Carnivore', 'Popular']
+    },
+    {
+        name: 'BarbQ',
+        price: 29,
+        popularity: 7,
+        category: 'Entree',
+        rating: 8,
+        tags: ['Carnivore', 'Sweet', 'Local Favorite']
+    },
+    {
+        name: 'Classic Itallian',
+        price: 39,
+        popularity: 7,
+        category: 'Entree',
+        rating: 9,
+        tags: ['Fresh', 'Local Grown', 'Award Winning']
+    },
+    {
+        name: 'Candy Pizza',
+        price: 25,
+        popularity: 6,
+        category: 'Dessert',
+        rating: 7,
+        tags: ['Sweet', 'Kids Choice', 'Yummy']
+    }
+]
 
 
 //////////////////PROBLEM 4////////////////////
@@ -105,9 +155,14 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+ const filteredFood = foodArr.filter(foodArr => foodArr.tags.includes('Award Winning'))
 
+//console.log(filteredFood)
 
+function filter(word, array) {
+    return array.filter(array => array.tags.includes(word))
+}
+//console.log(filter('Award Winning', foodArr))
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -149,7 +204,15 @@
 */
 
 //CODE HERE
+function filterByProperty(property, number, type) {
+    if(type === 'above') {
+        return foodArr.filter(foodArr => foodArr[`${property}`] >= number) 
+         
+    } else if( type === 'below') {
+        return foodArr.filter(foodArr => foodArr[`${property}`] <= number)
+    } 
 
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +222,4 @@
 */
 
 //CODE HERE
+console.log(filterByProperty('popularity', 9, 'above'))
